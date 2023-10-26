@@ -14,15 +14,7 @@
             background: #f2f2f2; 
         }
         /* fix for smaller device can't see content on the top */
-        @media (max-width: 1200px) {
-            body {
-                display: flex;
-                align-items: start;
-                overflow: auto;
-            }
-            
-        }
-        @media (max-width: 768px) {
+        @media (max-width: 768px) and (min-width: 1280px) {
             body {
                 display: flex;
                 align-items: start;
