@@ -11,11 +11,19 @@ fetch('https://script.google.com/macros/s/AKfycbxcL6StbNqWEeXTSo4wxmTSu2Kr2FI7DS
             // Check if it's the timestamp column and format it
             if (cellIndex === 0 && !isHeaderRow) {
                 const timestamp = new Date(cell);
-                const formattedDate = `${timestamp.getDate()}/${timestamp.getMonth() + 1}/${timestamp.getFullYear()}`;
-                const formattedTime = `${timestamp.getHours()}:${String(timestamp.getMinutes()).padStart(2, '0')}:${String(timestamp.getSeconds()).padStart(2, '0')}`;
-                const formattedTimestamp = `${formattedDate} ${formattedTime}`;
-                return `<${cellTag} class="drk" style="${cellStyle}">${formattedTimestamp}</${cellTag}>`;
+
+                const dateOptions = { timeZone: 'Asia/Jakarta', year: 'numeric', month: '2-digit', day: '2-digit' };
+
+                const hours = timestamp.getHours().toString().padStart(2, '0');
+                const minutes = timestamp.getMinutes().toString().padStart(2, '0');
+                const seconds = timestamp.getSeconds().toString().padStart(2, '0');
+
+                const formattedTimestamp = `${hours}:${minutes}:${seconds}`;
+                const formattedDate = timestamp.toLocaleString('id-ID', dateOptions);
+                
+                return `<${cellTag} class="drk" style="${cellStyle}">${formattedDate} ${formattedTimestamp}</${cellTag}>`;
             }
+            
             return `<${cellTag} class="drk" style="${cellStyle}">${cell}</${cellTag}>`;
         });
         return `<tr>${rowContent.join("")}</tr>`;

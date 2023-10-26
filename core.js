@@ -30,6 +30,7 @@ const loadingSpinner = document.getElementById('loadingSpinner');
 const redirectMessage = document.getElementById('redirectMessage');
 
 const scriptURL = 'https://script.google.com/macros/s/AKfycbwS7sBTVs4DjJmmRLu8ObxMO_RFM2TViH5MukhhXGK4jl20v5ZyY9fFe_dXsmjfsxlH/exec';
+
 const form = document.forms['submit-to-google-sheet'];
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -64,9 +65,11 @@ form.addEventListener('submit', e => {
                     // Hide the success message after 4 seconds and redirect
                     setTimeout(() => {
                         successMessage.style.display = 'none';
+                    }, 2000);
+                    setTimeout(() => {
                         redirectMessage.style.display = 'none';
                         window.location.href = '/bukutamu.html'; // Redirect
-                    }, 4000);
+                    }, 4500);
                 } else {
                     console.error('Error:', response);
                 }

@@ -14,6 +14,14 @@
             background: #f2f2f2; 
         }
         /* fix for smaller device can't see content on the top */
+        @media (max-width: 1200px) {
+            body {
+                display: flex;
+                align-items: start;
+                overflow: auto;
+            }
+            
+        }
         @media (max-width: 768px) {
             body {
                 display: flex;
@@ -54,7 +62,7 @@
                     </div>
                 </div>
                 <div class="alert alert-warning mt-3" id="redirectMessage" style="display: none;">
-                    Membuka Buku Tamu
+                    Membuka Buku Tamu...
                 </div>
                 <div class="form-check form-switch text-light">
                     <input class="form-check-input" type="checkbox" id="darkModeToggle">
@@ -62,7 +70,7 @@
                 </div>
             </div>
         </nav>
-        <form class="mt-3" ="submit-to-google-sheet">
+        <form class="mt-3" name="submit-to-google-sheet">
             <label for="nama" class="form-label">Nama</label>
             <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama" required>
             <label for="nomerWA" class="form-label mt-2">Nomer WA</label>
