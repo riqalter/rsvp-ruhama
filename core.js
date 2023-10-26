@@ -59,7 +59,8 @@ form.addEventListener('submit', e => {
                     successMessage.style.display = 'block';
                     redirectMessage.style.display = 'block';
 
-                    form.reset(); // Clear the for
+                    form.reset(); // Clear the form
+
                     // Hide the success message after 4 seconds and redirect
                     setTimeout(() => {
                         successMessage.style.display = 'none';
@@ -72,5 +73,5 @@ form.addEventListener('submit', e => {
             })
             .catch(error => console.error('Error!', error.message));
         })
-        .catch(error => console.error('Error fetching timestamp:', error));
+    .catch(error => console.error('Error fetching timestamp:', error));
 });
