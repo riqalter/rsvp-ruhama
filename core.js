@@ -39,7 +39,7 @@ form.addEventListener('submit', e => {
     loadingSpinner.style.display = 'block';
 
     // Fetch the timestamp using a public API
-    fetch('http://worldtimeapi.org/api/timezone/Asia/Jakarta')
+    fetch('https://worldtimeapi.org/api/timezone/Asia/Jakarta')
         .then(response => response.json())
         .then(timeData => {
             const formData = new FormData(form);
